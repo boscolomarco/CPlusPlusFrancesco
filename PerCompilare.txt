@@ -1,0 +1,26 @@
+particleDump_v1:
+g++ -Wall main_v1.cc read_v1.cc dump_v1.cc -o main
+
+particleDump_v2:
+g++ -Wall main_v2.cc read_v2.cc clear_v2.cc dump_v2.cc -o main
+
+particleMean_v1:
+g++ -Wall -std=c++11 main_v2.cc read_v2.cc dump_v2.cc add.cc clear_v2.cc mass.cc -o main
+
+paricleMean_v2:
+g++ -Wall -std=c++11 main.cc dump_v2.cc read_v2.cc Event.cc MassMean.cc mass.cc -o main
+
+paricleMean_v3:
+g++ -Wall -std=c++11 main.cc dump_v2.cc read_v2.cc Event.cc MassMean.cc mass.cc -o main
+
+particleMean_v4:
+g++ -Wall -std=c++11 main.cc AnalysisSteering.cc Event.cc EventDump.cc EventReadFromFile.cc EventSim.cc EventSource.cc MassMean.cc mass.cc ParticleMass.cc -o main
+
+particlePlot_v1:
+g++ -Wall `root-config --cflags` -o main main.cc AnalysisSteering.cc Event.cc EventDump.cc EventReadFromFile.cc EventSim.cc EventSource.cc MassMean.cc mass.cc ParticleMass.cc `root-config --libs`
+
+./main input particle_events.txt
+
+particlePlot_v2:
+g++ -Wall `root-config --cflags` -o main main.cc AnalysisSteering.cc Event.cc EventDump.cc EventReadFromFile.cc EventSim.cc EventSource.cc MassMean.cc mass.cc ParticleMass.cc AnalysisInfo.cc SourceFactory.cc `root-config --libs`
+
