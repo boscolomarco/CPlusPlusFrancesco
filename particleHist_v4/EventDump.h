@@ -2,10 +2,12 @@
 #define EventDump_h
 
 #include "AnalysisSteering.h"
+#include "../util/include/ActiveObserver.h"
+
 
 class Event;
 
-class EventDump: public AnalysisSteering{
+class EventDump: public AnalysisSteering, public ActiveObserver<Event> {
 
 public:
     EventDump(const AnalysisInfo *info);
@@ -20,7 +22,7 @@ public:
     // function to be called at execution end
     void endJob() override;
     // function to be called for each event
-    void process( const Event& ev ) override;
+    void update( const Event& ev ) override;
 
 };
 

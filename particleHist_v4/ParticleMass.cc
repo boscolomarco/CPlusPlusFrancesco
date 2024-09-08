@@ -4,6 +4,9 @@
 
 #include "Event.h"
 #include "MassMean.h"
+#include "ParticleReco.h"
+#include "../util/include/ActiveObserver.h"
+
 
 #include "TH1F.h"
 #include "TFile.h"
@@ -16,7 +19,7 @@
 double mass(const Event &ev);
 
 // concrete factory to create a ParticleMass analyzer
-class ParticleMassFactory: public AnalysisFactory::AbsFactory {
+class ParticleMassFactory:  public AnalysisFactory::AbsFactory{
  public:
   // assign "plot" as name for this analyzer and factory
   ParticleMassFactory(): AnalysisFactory::AbsFactory( "plot" ) {}            //Il nome della AbsFactory è "plot" in questo caso
@@ -55,7 +58,6 @@ void ParticleMass::endJob(){
     // open histogram file
     TFile* file = new TFile( "hist.root", "CREATE" );
 
-    int it = 0;
     for(Particle *pMean : pList){
 
         //massMean è il puntatore alla classe MassMean (definiti nella struct Particle)
@@ -72,7 +74,6 @@ void ParticleMass::endJob(){
         std::cout << mean << " " << RMS << std::endl;
         //hMean -> SetBinContent(it + 1, mean);
         //hMean -> SetBinError(it, RMS);
-        it += 1;
 
         hMean -> Write();
 
@@ -86,11 +87,14 @@ void ParticleMass::endJob(){
     return;
 }
 
-void ParticleMass::process(const Event &ev){
+void ParticleMass::update(const Event &ev){
+
+    static ParticleReco* Part_Reco = ParticleReco::instance();
+    double m = Part_Reco->Part_Mass();
 
     for(Particle *pParticle : pList){
         if(pParticle -> massMean -> add(ev))
-            pParticle -> hMean -> Fill(mass(ev));
+            pParticle -> hMean -> Fill(m);
     }
     return;
 }

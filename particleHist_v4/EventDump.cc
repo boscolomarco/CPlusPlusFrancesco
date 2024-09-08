@@ -1,6 +1,8 @@
 #include "EventDump.h"
 #include "Event.h"
 #include "AnalysisFactory.h"
+#include "../util/include/ActiveObserver.h"
+
 #include <iostream>
 
 
@@ -39,7 +41,7 @@ void EventDump::endJob(){
 }
 
 //Function to be called for each event
-void EventDump::process(const Event &ev){
+void EventDump::update(const Event &ev){
 
     std::cout << ev.eventNumber() << std::endl;
     std::cout << ev.getX() << " " << ev.getY() << " " << ev.getZ() << std::endl;

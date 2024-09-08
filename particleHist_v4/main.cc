@@ -4,12 +4,12 @@
 
 #include "AnalysisInfo.h"
 #include "AnalysisSteering.h"
+#include "AnalysisFactory.h"
 #include "EventSource.h"
 #include "SourceFactory.h"
 #include "EventDump.h"
 #include "ParticleMass.h"
 #include "Event.h"
-#include "AnalysisFactory.h"
 
 int main(int argc, char *argv[]){
 
@@ -28,14 +28,8 @@ int main(int argc, char *argv[]){
         as ->beginJob();
     }
 
-    const Event *ev;
-    while((ev = es->get()) != nullptr){
-        for(auto as : aList){
-            as ->process(*ev);
-        }
-
-        delete ev;
-    }
+    //Chiama la funzione "run" in EventSource
+    es->run();
 
     for (auto as : aList){
         as ->endJob();

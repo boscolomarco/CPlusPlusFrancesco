@@ -24,3 +24,11 @@ g++ -Wall `root-config --cflags` -o main main.cc AnalysisSteering.cc Event.cc Ev
 particlePlot_v2:
 g++ -Wall `root-config --cflags` -o main main.cc AnalysisSteering.cc Event.cc EventDump.cc EventReadFromFile.cc EventSim.cc EventSource.cc MassMean.cc mass.cc ParticleMass.cc AnalysisInfo.cc SourceFactory.cc `root-config --libs`
 
+
+particlePlot_V3:
+g++ -Wall `root-config --cflags` -o main main.cc AnalysisFactory.cc AnalysisSteering.cc Event.cc EventDump.cc EventReadFromFile.cc EventSim.cc EventSource.cc MassMean.cc mass.cc ParticleMass.cc AnalysisInfo.cc SourceFactory.cc `root-config --libs`
+
+(in questa versione si può scegliere se effettuare il dump o il plot)
+
+particlePlot_V4: 
+g++ -Wall -I ../ `root-config --cflags` -o main main.cc ParticleReco.cc AnalysisFactory.cc AnalysisSteering.cc Event.cc EventDump.cc EventReadFromFile.cc EventSim.cc EventSource.cc MassMean.cc ParticleMass.cc AnalysisInfo.cc SourceFactory.cc `root-config --libs`
