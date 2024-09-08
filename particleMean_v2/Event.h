@@ -5,14 +5,14 @@ class Event {
 
  public:
 
-  // constructor
-  Event(int n, float x, float y, float z);       // create an event with number "n" and coordinates x, y, z
+  // Costruttore
+  Event(int n, float x, float y, float z);       // Crea un evento con numero "n" e coordinate x, y, z
 
-  // destructor
+  // Distruttore
   ~Event();
 
-  // composite object Particle to hold all information for each particle
-  // ( electric charge and x,y,z momentum components )
+  // Struttura contiene tutte le informazioni sulle particelle decadute
+  // carica elettrica e trimomento 
   struct Particle {
     int charge;
     float p_x, p_y, p_z;
@@ -21,30 +21,28 @@ class Event {
 
   typedef const Particle* part_ptr;
 
-  // add a particle to the event
   void add(int charge, float px, float py, float pz);
 
-  // get event id.
+  // prende l'Id della particella 
   int eventNumber() const;
 
-  // get decay point coordinates
+  // prende le posizioni di decadimento 
   float getX() const;
   float getY() const;
   float getZ() const;
 
-  // get number of particles
+  // prende il numero di particelle 
   int nParticles() const;
 
-  // get particle
   part_ptr particle(unsigned int i) const;
 
  private:
 
-  // event-specific informations:
-  int evId;                     // event id       
-  float X, Y, Z;                // decay point
+  // informazioni realtive ad ogni decaidmento 
+  int evId;                     // Identificativo evento 
+  float X, Y, Z;                // Coordinate di decadimento
 
-  // particles: number and array of pointers
+  // particles: numero di particelle e array di puntatori
   int nPar;
   static int maxPar;
   Particle **p;

@@ -6,7 +6,7 @@
 #include <fstream>
 #include <string>
 
-//Legge i dati dal file txt
+//Read data from the txt file:
 EventReadFromFile::EventReadFromFile(const std::string &name){
     file = new std::ifstream(name.c_str());
 

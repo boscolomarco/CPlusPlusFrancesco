@@ -11,6 +11,8 @@
 #include <sstream>
 #include <cmath>
 
+double mass(const Event &ev);
+
 ParticleMass::ParticleMass(){
 
 }
@@ -50,7 +52,7 @@ void ParticleMass::endJob(){
         double RMS = massMean -> mRMS();
 
         std::cout << mean << " " << RMS << std::endl;
-        hMean -> SetBinContent(it + 1, mean);
+        //hMean -> SetBinContent(it + 1, mean);
         //hMean -> SetBinError(it, RMS);
         it += 1;
 
@@ -69,7 +71,8 @@ void ParticleMass::endJob(){
 void ParticleMass::process(const Event &ev){
 
     for(Particle *pParticle : pList){
-        pParticle -> massMean -> add(ev);
+        if(pParticle -> massMean -> add(ev))
+            pParticle -> hMean -> Fill(mass(ev));
     }
     return;
 }
@@ -86,7 +89,7 @@ void ParticleMass::pCreate(const std::string &histName, float min, float max){
      part -> histName = histName;
      part -> massMean = new MassMean(min, max);
      //Creo l'istogramma:
-     part -> hMean = new TH1F(hName, hName, 100, 0.5, 101);
+     part -> hMean = new TH1F(hName, hName, 150, min, max);
 
      pList.push_back(part);
     

@@ -8,6 +8,7 @@
 
 double mass(const Event &ev) {
 
+  // variables to loop over particles
   int pos = 0.0; int neg = 0.0;
 
   double p_xTot     = 0; 
@@ -66,7 +67,7 @@ double mass(const Event &ev) {
 
   if((neg ==1) && (pos == 1)){
     
-    //Calcolo massa invariante
+    //Compute the invariant mass:
     KInvMass = Utilities::InvMass(KEnergyTot, p_xTot, p_yTot, p_zTot);
     LInvMass = Utilities::InvMass(LEnergyTot, p_xTot, p_yTot, p_zTot);
   }

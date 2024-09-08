@@ -1,6 +1,3 @@
-// g++ -Wall main_v1.cc rad_v1.cc dump_v1.cc -o main
-//./main particle_events.txt
-
 #include <iostream>
 #include <fstream>
 
@@ -11,6 +8,7 @@ int main(int argc, char *argv[]){
 
     // Prende come input il file che inserisco come secondo argomento nella riga di comando
     const char *part_ev = argv[1];
+    //Apre il file di input
     std::ifstream ifile(part_ev);
 
     // Definisco le variabili.
@@ -21,6 +19,7 @@ int main(int argc, char *argv[]){
     float p_x[10], p_y[10], p_z[10]; // Momenti delle particelle decadute
 
     while (ifile >> evNumber){
+        //Leggo e mando in output gli eventi
         nParticles = read(ifile, x, y, z, elCharge, p_x, p_y, p_z);
         dump(evNumber, nParticles, x, y, z, elCharge, p_x, p_y, p_z);
     }

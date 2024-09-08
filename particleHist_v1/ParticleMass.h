@@ -1,5 +1,5 @@
-#ifndef ParticleMass_h
-#define ParticleMass_h
+#ifndef PARTICLEMASS_H
+#define PARTICLEMASS_H
 
 #include "AnalysisSteering.h"
 #include <string>

@@ -14,13 +14,13 @@ double SquaredMomentum(double p_x, double p_y, double p_z){
   return pow(p_x, 2) + pow(p_y, 2) + pow(p_z, 2);
 }
 
-// compute energy from momentum x,y,z components and invariant mass
+// Calcolo l'energia a partire dalla somma quadrata tra momento e massa invariante 
 double Energy(double p_x, double p_y, double p_z, double invMass) {
   
   return sqrt(SquaredMomentum(p_x, p_y, p_z) + pow(invMass, 2));
 } 
 
-// compute invariant mass from momentum x,y,z components and energy
+// Calcolo la massa invariante come differeza in auqdratura tra energia e momento
 double InvMass(double energy, double p_x, double p_y, double p_z) {
 
   return sqrt(pow(energy, 2) - SquaredMomentum(p_x, p_y, p_z));
@@ -28,19 +28,19 @@ double InvMass(double energy, double p_x, double p_y, double p_z) {
 
 double mass(const Event &ev) {
 
-  // retrieve particles in the event
+  // Prendo le particelle dagli eventi 
   typedef const Particle* part_ptr;
   const part_ptr* particles = ev.p;
 
   //Particle ** particles = ev.p;         //Equivalente alle due righe sopra
 
-  // variables to loop over particles
+  // Variabili da calcolare nel loop
   int pos = 0.0; int neg = 0.0;
 
   double p_xTot     = 0; double p_yTot     = 0;  double p_zTot     = 0;
-  double KEnergyTot = 0;                  //Energie totali nell'ipotesi K
-  double LEnergyTot = 0;                  //Energie totali nell'ipotesi Lambda
-  double KInvMass   = 0;                     //Massa invariante nelle ipotesi K e Lambda
+  double KEnergyTot = 0;                  //Energie totali nell'ipotesi K e Lambda
+  double LEnergyTot = 0;                  
+  double KInvMass   = 0;                  //Massa invariante nelle ipotesi K e Lambda
   double LInvMass   = 0;             
 
 

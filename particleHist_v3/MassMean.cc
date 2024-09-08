@@ -8,9 +8,9 @@
 
 double mass(const Event &ev);
 
-// costruttore
+// constructor
 MassMean::MassMean(float min, float max):
-  // inizializzatori
+  // initializations
   minInvMass(min), maxInvMass(max),
   numberOfEvents(0), sumMasses(0), sumSquareMasses(0),
   meanMass(0), RMS(0)
@@ -19,40 +19,46 @@ MassMean::MassMean(float min, float max):
 }
 
 
-// distruttore
+// destructor
 MassMean::~MassMean() {
 
 }
 
 
-// aggiungo dati all'eventi 
-void MassMean::add(const Event& ev) {
+// add data from a new event
+bool MassMean::add(const Event& ev) {
 
   double m = mass(ev);
-  // controllo che la massa invariante sia nel range prestabilito
+  // check for mass being in range
   if ((m > minInvMass) && (m < maxInvMass)){
     
-    // aggiorno gli aventi accettati
+    // update number of events and sums
     sumMasses += m;
     sumSquareMasses += pow(m, 2);
     numberOfEvents++;
+
+    return true;
   }
+  else 
+    return false;
 
 }
 
 
-// Cacolo le masse invarianti 
+// compute mean and rms
 void MassMean::compute() {
   meanMass = sumMasses / numberOfEvents;
   RMS = sqrt(1.0/numberOfEvents * sumSquareMasses - pow(meanMass, 2));
 }
 
 
+// return number of selected events
 int MassMean::nEvents(){
   return numberOfEvents;
 }
 
 
+// return mean and rms
 double MassMean::mMean() {
   return meanMass;
 }

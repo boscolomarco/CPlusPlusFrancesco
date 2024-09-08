@@ -37,6 +37,4 @@ const Event *read(std::ifstream &file){
 ciclo tra gli nPar e quindi creo (dentro al ciclo for) un nuovo arogmento per la struttura Particle (come quando deifnisco
 una struttura normalmente). Quindi inserisco nella struttura carica e momento e poi alla fine del ciclo INSERISCO NELL'IESIMO 
 ELEMENTO DI p (PUNTATORE DI ARRAY IN EVENT) L' "ARGOMENTO DELLA STRUTTURA DI PARTICLE"
-
-
 */

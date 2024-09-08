@@ -5,8 +5,6 @@
 
 double mass(const Event &ev);
 
-//Non sono sicuro che il filetype sia bool!!
-
 bool add(const Event &ev, double min, double max, double &sum, double &squareSum){
 
     double m = mass(ev);
@@ -28,6 +26,6 @@ bool add(const Event &ev, double min, double max, double &sum, double &squareSum
 void stats(int n, double &sum, double &squareSum, double &Mean, double &RMS){
 
     Mean = sum * 1.0/n;
-    RMS = sqrt(1.0/n * squareSum - Mean * Mean);
+    RMS = sqrt(1.0/n * squareSum - (Mean * Mean));
 
 }

@@ -7,30 +7,30 @@ class MassMean {
 
  public:
 
-  // constructor
-  MassMean(float min, float max);       // mass range
+  // Costruttore
+  MassMean(float min, float max);       // Range delle masse
 
-  // destructor
+  // Distruttore
   ~MassMean();
 
-  void add(const Event& ev);      // add data from a new event
-  void compute();                   // compute mean and rms
+  void add(const Event& ev);      // Aggiungo dati al nuovo evento
+  void compute();                   // Calcolo media e RMS
 
-  int nEvents();                   // return number of accepted events
-  double mMean() ;                  // return mean mass
-  double mRMS();                   // return rms  mass
+  int nEvents();                   // Ritorna il numero di eventi accettati
+  double mMean() ;                  // Ritorna media e RMS
+  double mRMS();                   
 
  private:
 
   float minInvMass;      //Estremo inferiore e superiore del range di massa 
   float maxInvMass; 
 
-  int numberOfEvents;           // number of accepted events
-  double sumMasses;       // sum of masses
-  double sumSquareMasses; // sum of masses square
+  int numberOfEvents;           // NUmero di eventi accettati 
+  double sumMasses;             // Somma delle masse e somma quadrata delle asse 
+  double sumSquareMasses; 
 
-  double meanMass;         // mean mass
-  double RMS;              // rms  mass
+  double meanMass;         // Media delle masse
+  double RMS;              // RMS delle masse 
 
 };
 

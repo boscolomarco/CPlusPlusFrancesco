@@ -1,9 +1,9 @@
 #include "Event.h"
 
 
-// Costruttore
+// constructor
 Event::Event(int n, float x, float y, float z):
- // inizializzatori
+ // initializations
  evId(n),
  X(x), Y(y), Z(z)
  {
@@ -11,16 +11,18 @@ Event::Event(int n, float x, float y, float z):
 }
 
 
-// distruttore
+// destructor
 Event::~Event() {
 }
 
 
 void Event::add(int charge, float px, float py, float pz) {
 
-  
+  // check for the number of particles, if maximum reached do nothing
+  // and return
   if(p.size() < 10){
 
+    // create the new particle and fill with data
     Particle particle;
     particle.charge = charge;
     particle.p_x = px;
@@ -36,13 +38,13 @@ void Event::add(int charge, float px, float py, float pz) {
 }
 
 
-// Identificativo dell'evento
+// get event id.
 int Event::eventNumber() const {
   return evId;
 }
 
 
-// Coordinate di decadimento
+// get decay point coordinates 
 float Event::getX() const{
   return X;
 }
@@ -55,14 +57,16 @@ float Event::getZ() const{
   return Z;
 }
 
-
+// get number of particles
 int Event::nParticles() const{
   return nPar;
 }
 
+// get particle
 
 const Event::Particle* Event::particle( unsigned int i ) const{
   if (i  < p.size()){
+    //CAPISCI BENE PERCHè LA REFERENCE!!!
     return &p[i];
     }
   else 

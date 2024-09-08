@@ -7,14 +7,14 @@ class Event {
 
  public:
 
-  // constructor
-  Event(int n, float x, float y, float z);       // create an event with number "n" and coordinates x, y, z
+  // Costruttore
+  Event(int n, float x, float y, float z);       // Crea un evento con numero "n" e coordinate x, y, z
 
-  // destructor
+  // Distruttore
   ~Event();
 
-  // composite object Particle to hold all information for each particle
-  // ( electric charge and x,y,z momentum components )
+   // Struttura contiene tutte le informazioni sulle particelle decadute
+  // carica elettrica e trimomento 
   struct Particle {
     int charge;
     float p_x, p_y, p_z;
@@ -23,29 +23,27 @@ class Event {
 
   typedef const Particle* part_ptr;
 
-  // add a particle to the event
+  // Aggiunge un punto all'evento
   void add(int charge, float px, float py, float pz);
 
-  // get event id.
+  //Prende l'identificativo
   int eventNumber() const;
 
-  // get decay point coordinates
+  // Prende i punti di decaidmento 
   float getX() const;
   float getY() const;
   float getZ() const;
 
   int nParticles() const;
 
-  // get particle
   part_ptr particle(unsigned int i) const;
 
  private:
 
-  // event-specific informations:
-  int evId;                     // event id       
-  float X, Y, Z;                // decay point
+  // Informazioni realtive all'evenit
+  int evId;                     //ID dell'evento
+  float X, Y, Z;                // punto di decaidmento
   int nPar;
-  // particles: number and array of pointers
   std::vector<Particle> p;
 
   

@@ -11,6 +11,8 @@
 #include <sstream>
 #include <cmath>
 
+double mass(const Event &ev);
+
 ParticleMass::ParticleMass(){
 
 }
@@ -21,7 +23,7 @@ ParticleMass::~ParticleMass(){
 
 void ParticleMass::beginJob(){
 
-    //Chiamo la funzione pCreate(nome, min, max)
+    //Invoco la funzione pCreate(nome, min, max)
     pCreate("K", 0.495, 0.5);
     pCreate("Lambda", 1.115, 1.116);
 
@@ -35,7 +37,7 @@ void ParticleMass::endJob(){
     // open histogram file
     TFile* file = new TFile( "hist.root", "CREATE" );
 
-    int it = 1;
+    int it = 0;
     for(Particle *pMean : pList){
 
         //massMean è il puntatore alla classe MassMean (definiti nella struct Particle)
@@ -50,8 +52,8 @@ void ParticleMass::endJob(){
         double RMS = massMean -> mRMS();
 
         std::cout << mean << " " << RMS << std::endl;
-        hMean -> SetBinContent(it, mean);
-        hMean -> SetBinError(it, RMS);
+        //hMean -> SetBinContent(it + 1, mean);
+        //hMean -> SetBinError(it, RMS);
         it += 1;
 
         hMean -> Write();
@@ -69,7 +71,8 @@ void ParticleMass::endJob(){
 void ParticleMass::process(const Event &ev){
 
     for(Particle *pParticle : pList){
-        pParticle -> massMean -> add(ev);
+        if(pParticle -> massMean -> add(ev))
+            pParticle -> hMean -> Fill(mass(ev));
     }
     return;
 }
@@ -86,7 +89,7 @@ void ParticleMass::pCreate(const std::string &histName, float min, float max){
      part -> histName = histName;
      part -> massMean = new MassMean(min, max);
      //Creo l'istogramma:
-     part -> hMean = new TH1F(hName, hName, 3, 0.5, 1);
+     part -> hMean = new TH1F(hName, hName, 150, min, max);
 
      pList.push_back(part);
     

@@ -12,7 +12,7 @@
 
 int main(int argc, char *argv[]){
 
-    //Creo un interfaccia astratta di es (è un pointer perchè dovrò usare "new")
+    //Creo un interfaccia astratta di es 
     EventSource *es;
     const std::string type = argv[1];
 
@@ -40,10 +40,10 @@ int main(int argc, char *argv[]){
 
     std::vector<AnalysisSteering*> aList;
 
-    //Create a object to dump event and store into list of analyzers:
+    //creo un oggetto su cui effetturare il dump e immagazzinare la lista di analizzatori
     aList.push_back(new EventDump);
 
-    //create object to compute mean and rms and stores into list of analyzers:
+    //ccreo un oggetto su cui effettuare l'analisi di massa media e RMS
     aList.push_back(new ParticleMass);
 
     for(auto as : aList){

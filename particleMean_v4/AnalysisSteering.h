@@ -14,7 +14,7 @@ public:
     virtual ~AnalysisSteering();
 
     //Function to call when execution starts/ends
-    virtual void beginJob() = 0;
+    virtual void beginJob() = 0;        //Pure virtual function!!
     virtual void endJob() = 0;
 
     //Function to call for each event

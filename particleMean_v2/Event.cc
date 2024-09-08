@@ -1,38 +1,36 @@
 #include "Event.h"
 
-//Imposto maxPar pari a 10
+//Impongo maxPar pari a 10
 int Event::maxPar = 10;
 
-// constructor
+// costruttore
 Event::Event(int n, float x, float y, float z):
- // initializations
+ // inizializzatori
  evId(n),
  X(x), Y(y), Z(z), nPar(0)
  {
-  // allocate a buffer for particle pointers
+  // alloco memoria di buffer
   p = new Particle *[maxPar];
   //p è un array di pointer, in questo modo lo definisco
 }
 
 
-// destructor
+// distruttore
 Event::~Event() {
-  // delete all the particle pointers
+  // cancella ogni particella nel costruttore
   for(int i = 0; i < nPar; ++i){
     delete p[i];
   }
-  // delete the pointers array
+  // cancella l'array di pointer 
   delete[] p;
 }
 
 
 void Event::add(int charge, float px, float py, float pz) {
 
-  // check for the number of particles, if maximum reached do nothing
-  // and return
+  //Controlla il numero di particelle, se il massimo è raggiunto non fa nulla 
   if(nPar < maxPar){
 
-    // create the new particle and fill with data
     Particle *particle = new Particle;
 
     particle ->charge = charge;
@@ -40,10 +38,8 @@ void Event::add(int charge, float px, float py, float pz) {
     particle ->p_y = py;
     particle ->p_z = pz; 
 
-    // store the new particle pointer in the array and increase counter
+    //Immagazzino il puntatore alla particella nell'array e incremento il contatore
     p[nPar] = particle;
-
-    //Incremento 
     nPar++;
 
   }
@@ -56,8 +52,7 @@ int Event::eventNumber() const {
   return evId;
 }
 
-
-// get decay point coordinates 
+//Prendo le coordinate di decaidmento
 float Event::getX() const{
   return X;
 }
@@ -71,13 +66,12 @@ float Event::getZ() const{
 }
 
 
-// get number of particles
 int Event::nParticles() const{
   return nPar;
 }
 
 
-// get particle
+// prendo le particelle
 const Event::Particle* Event::particle( unsigned int i ) const{
   if (i  < nPar){
     //pointer alla specifica particella 

@@ -14,17 +14,17 @@ void dump (const Event &ev);
 
 int main(int argc, char* argv[]) {
 
-  // open input file
+  // Apro file di input
   const std::string name = argv[1];
   std::ifstream file(name.c_str());
 
-  // create MassMean objects
+  // Creo gli oggetti MassMean
 
   MassMean K(0.495, 0.5);
   MassMean Lambda(1.115, 1.116);
   
 
-  // loop over events
+  // loop degli eventi
   const Event* ev;
   while ( (ev = read(file)) != nullptr ) {
     dump(*ev);
@@ -39,7 +39,7 @@ int main(int argc, char* argv[]) {
   Lambda.compute();
   
 
-  // print number of selected events and results for both particles
+  //Stampo gli eventi selezionati e i risultati di entrambe le particelle
   double KMean = K.mMean();
   double KRMS = K.mRMS();
   double LambdaMean = Lambda.mMean();
