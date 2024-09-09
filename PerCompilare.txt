@@ -31,4 +31,9 @@ g++ -Wall `root-config --cflags` -o main main.cc AnalysisFactory.cc AnalysisStee
 (in questa versione si può scegliere se effettuare il dump o il plot)
 
 particlePlot_V4: 
-g++ -Wall -I ../ `root-config --cflags` -o main main.cc ParticleReco.cc AnalysisFactory.cc AnalysisSteering.cc Event.cc EventDump.cc EventReadFromFile.cc EventSim.cc EventSource.cc MassMean.cc ParticleMass.cc AnalysisInfo.cc SourceFactory.cc `root-config --libs`
+g++ -Wall -I ../ `root-config --cflags` -o main main.cc ProperTime.cc LifetimeFit.cc ParticleLifetime.cc ParticleReco.cc AnalysisFactory.cc AnalysisSteering.cc Event.cc EventDump.cc EventReadFromFile.cc EventSim.cc EventSource.cc MassMean.cc ParticleMass.cc AnalysisInfo.cc SourceFactory.cc `root-config --libs`
+
+
+particlePlot_V5: 
+g++ -Wall -I ../ `root-config --cflags` -o main main.cc QuadraticFitter.cc ProperTime.cc LifetimeFit.cc ParticleLifetime.cc ParticleReco.cc AnalysisFactory.cc AnalysisSteering.cc Event.cc EventDump.cc EventReadFromFile.cc EventSim.cc EventSource.cc MassMean.cc ParticleMass.cc AnalysisInfo.cc SourceFactory.cc `root-config --libs`
+(./main input particle_events.txt dump time timeRanges particleFitters)
