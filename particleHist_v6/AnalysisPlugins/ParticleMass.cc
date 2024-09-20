@@ -1,14 +1,14 @@
-#include "TH1F.h"
 #include "ParticleMass.h"
-#include "AnalysisFactory.h"
-#include "MassMean.h"
-#include "ParticleReco.h"
-#include "AnalysisInfo.h"
+#include "../AnalysisFramework/AnalysisFactory.h"
+#include "../AnalysisObject/MassMean.h"
+#include "TH1F.h"
+#include "../AnalysisObject/ParticleReco.h"
+#include "../util/include/TFileProxy.h"
+#include "../AnalysisFramework/AnalysisInfo.h"
 
 #include <iostream>
 #include <fstream>
 
-#include "../util/include/TFileProxy.h"
 
 double mass(const Event &ev);
 

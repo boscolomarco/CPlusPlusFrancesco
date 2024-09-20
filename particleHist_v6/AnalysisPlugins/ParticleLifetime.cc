@@ -1,15 +1,15 @@
 #include "ParticleLifetime.h"
-#include "AnalysisFactory.h"
-#include "AnalysisInfo.h"
-#include "Constant.h"
+#include "../AnalysisFramework/AnalysisFactory.h"
+#include "../AnalysisFramework/AnalysisInfo.h"
+#include "../AnalysisFramework/Event.h"
+#include "../AnalysisObject/LifetimeFit.h"
+#include "TH1F.h"
+#include "../AnalysisObject/ProperTime.h"
+#include "../../util/include/TFileProxy.h"
+
+#include <string>
 #include <iostream>
 #include <fstream>
-#include "Event.h"
-#include "LifetimeFit.h"
-#include "TH1F.h"
-#include "ProperTime.h"
-#include <string>
-#include "../util/include/TFileProxy.h"
 
 double mass(const Event &ev);
 

@@ -1,10 +1,10 @@
 #ifndef ParticleReco_h
 #define ParticleReco_h
 
-#include "Event.h"
+#include "../AnalysisFramework/Event.h"
 
-#include "../util/include/Singleton.h"
-#include "../util/include/LazyObserver.h"
+#include "../../util/include/Singleton.h"
+#include "../../util/include/LazyObserver.h"
 
 class ParticleReco: public Singleton<ParticleReco>,
                     public LazyObserver<Event> {

@@ -1,8 +1,8 @@
 #ifndef ParticleLifetime_h
 #define ParticleLifetime_h
 
-#include "AnalysisSteering.h"
-#include "../util/include/ActiveObserver.h"
+#include "../AnalysisFramework/AnalysisSteering.h"
+#include "../../util/include/ActiveObserver.h"
 
 #include <string>
 #include <vector>

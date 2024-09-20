@@ -1,8 +1,8 @@
 #include "LifetimeFit.h"
-#include "Event.h"
+#include "../AnalysisFramework/Event.h"
 #include "ParticleReco.h"
 #include "ProperTime.h"
-#include "QuadraticFitter.h"
+#include "../AnalysisUtilities/QuadraticFitter.h"
 #include <cmath>
 
 

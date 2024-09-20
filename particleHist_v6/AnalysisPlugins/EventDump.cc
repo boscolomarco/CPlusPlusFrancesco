@@ -1,7 +1,7 @@
 #include "EventDump.h"
-#include "Event.h"
-#include "AnalysisFactory.h"
-#include "../util/include/ActiveObserver.h"
+#include "../AnalysisFramework/Event.h"
+#include "../AnalysisFramework/AnalysisFactory.h"
+#include "../../util/include/ActiveObserver.h"
 
 #include <iostream>
 

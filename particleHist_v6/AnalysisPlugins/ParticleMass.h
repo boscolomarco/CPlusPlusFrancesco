@@ -1,8 +1,8 @@
 #ifndef PARTICLEMASS_H
 #define PARTICLEMASS_H
 
-#include "AnalysisSteering.h"
-#include "../util/include/ActiveObserver.h"
+#include "../AnalysisFramework/AnalysisSteering.h"
+#include "../../util/include/ActiveObserver.h"
 
 #include <string>
 #include <vector>

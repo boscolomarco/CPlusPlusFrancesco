@@ -2,7 +2,7 @@
 #define AnalysisSteering_h
 
 #include "AnalysisInfo.h"
-#include "util/include/ActiveObserver.h"
+#include "../../util/include/ActiveObserver.h"
 
 class Event;
 

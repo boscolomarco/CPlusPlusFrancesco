@@ -1,7 +1,7 @@
 #include "ProperTime.h"
-#include "Event.h"
-#include "Utilities.h"
-#include "Constant.h"
+#include "../AnalysisFramework/Event.h"
+#include "../AnalysisUtilities/Utilities.h"
+#include "../AnalysisUtilities/Constant.h"
 #include <iostream>
 #include <cmath>
 #include "ParticleReco.h"

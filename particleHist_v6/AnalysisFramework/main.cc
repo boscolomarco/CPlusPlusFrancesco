@@ -4,7 +4,7 @@
 #include "SourceFactory.h"
 #include "AnalysisInfo.h"
 #include "AnalysisFactory.h"
-#include "../util/include/Dispatcher.h"
+#include "../../util/include/Dispatcher.h"
 
 using namespace std;
 
