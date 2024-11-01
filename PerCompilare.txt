@@ -1,3 +1,5 @@
+qua sto facendo delle modifiche, anche io avevo fatto l'esame di c++ e programmazione ad oggetti, molto carino impari veramente a programmare.
+
 particleDump_v1:
 g++ -Wall main_v1.cc read_v1.cc dump_v1.cc -o main
 
